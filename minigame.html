@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>21と33/4番線へようこそ</title>
+        <link rel="stylesheet" href="/css/minigame.css">
+    </head>
+
+    <body>
+        <div class="sound-button-set">
+            <button id="soundbutton1" >何だろな</button>
+            <button id="soundbutton2" >何だろな</button>
+            <button id="soundbutton3" >何だろな</button>
+            <button id="soundbutton4" >何だろな</button>
+        </div>
+            
+            <script>
+                alert("【注意】このページのボタンを押すと耳障りな音声ファイルが再生されます‼");//ポップアップ警告が出力
+
+
+            const buttons = document.querySelectorAll('button'); // 全てのボタン要素を取得
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (button.id === 'soundbutton1') {
+                        new Audio('/voise/sound.mp3').play();
+                    } else if (button.id === 'soundbutton2') {
+                        new Audio('/voise/bero-sound.mp3').play();
+                    } else if (button.id === 'soundbutton3') {
+                        new Audio('/voise/iphone.mp3').play();
+                    } else if (button.id === 'soundbutton4') {
+                        new Audio('/voise/mayo.mp3').play();
+                    }
+                });
+            });
+            </script>
+
+    
+    </body>
+</html>

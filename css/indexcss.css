@@ -1,0 +1,455 @@
+@charset "utf-8";
+
+.responsive-image {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10000px;
+}
+
+/* 全要素のサイズ計算を直感的にする（paddingを幅に含める設定） */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* レイアウトコンテナの調整 */
+#summarylayout {
+    width: 100%;            /* 親要素(body)に合わせて幅を確保 */
+    max-width: 1280px;      /* 中身の合計幅に合わせて拡張 */
+    /* コンテンツが画面より大きい場合のスクロール考慮はbodyのデフォルト挙動に任せるか、
+       必要に応じて overflow-y: auto 等を追加してください */
+}
+
+@media screen {
+
+  body {
+    color: #793e17;
+
+    /* background-color: #ffffff; */
+    a:link {
+      color: #793e17;
+    }
+
+    a:visited {
+      color: #793e17;
+    }
+
+    /* 既に見たリンク */
+    a:active {
+      color: #ff8800;
+    }
+
+    /* 今回見たリンク */
+    a:hover {
+      color: #ff3232;
+    }
+
+    /* カーソルが上にあるとき */
+
+  }
+
+  /* body {
+    display: flex;
+    flex-direction: row;
+    background-image: url("/画像ファイル/sougennodoubutu.png");
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  } */
+
+  /* body内の要素を画面中央に配置する設定 */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;      /* ビューポートの高さを確保 */
+    display: flex;          /* Flexboxを有効化 */
+    justify-content: center;/* 水平方向の中央揃え */
+    align-items: center;    /* 垂直方向の中央揃え */
+    box-sizing: border-box;
+
+    background-image: url("/imarge/sougennodoubutu.png");
+}
+
+  .header {
+    background-color: rgb(255, 255, 255);
+    width:1200px;
+    min-width: 100%;
+    /* 最小幅をウィンドウ幅に */
+    max-width: 200%;
+    /* 最大幅をウィンドウ幅の2倍に */
+    width: 100%;
+    max-width: 1280px;
+    text-align: center;
+    /* 文字を中央揃え */
+    align-items: center;
+  }
+
+  #contents {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;            /* 子要素を横並びにする */
+    justify-content: center;  /* 中央寄せ（必要に応じて space-between 等に変更） */
+    align-items: flex-start;  /* 上端を揃える */
+  }
+
+  .header_rogo {
+    display: column;
+  }
+
+  .rogogif {
+    width: 700px;
+    height: auto;
+  }
+
+  .header_text {
+    margin-left: 160px;
+    flex-direction: column;
+    /* 子要素を縦並びにする */
+    justify-content: center;
+    /* 子要素を垂直方向中央揃え */
+  }
+
+  a,
+  p {
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    line-height: 1.0;
+  }
+
+
+  .center-header.center-text {
+    text-align: center;
+  }
+
+  .large-header {
+    font-size: 50px;
+  }
+
+  .large-text {
+    font-size: 50px;
+  }
+
+  /* 左列*/
+
+  #leftcol {
+    width: 250px;
+    background-color: rgba(255, 232, 163, 0.6);
+    flex-shrink: 0;
+
+  }
+
+  .side_col {
+    border-radius: 1.5rem;
+  }
+
+  .side_box {
+    margin-bottom: 30px;
+    margin-left: 20px;
+
+
+  }
+
+  .section_title {
+    position: relative;
+    text-align: center;
+  }
+
+
+  li {
+    /* .side_box 内の ul タグに適用 */
+    line-height: 3;
+  }
+
+  .lirink {
+    margin-right: 30px
+  }
+
+  .side_contents li {
+    list-style: none;
+    list-style-position: outside;
+  }
+
+  .item_list_link {
+    border-bottom: 1px solid #3b2409;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .nav_text {
+    list-style: none;
+  }
+
+  .item_list_link {
+    text-decoration: none;
+  }
+
+.xlogo{
+  
+  width: 32px;
+  height: 32px;
+  margin: 10px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .middle_col {
+    display: flex;
+    width: 700px;
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .main_box {
+    width: 740px;
+    background-color: rgba(255, 232, 163, 0.6);
+    flex-shrink: 1;
+    border-radius: 1.5rem;
+    padding: 20px;
+  }
+
+  .two-set {
+    display: flex;
+    /* フレックスボックスを適用 */
+    flex-direction: row;
+    /* 横並びに配置 */
+    justify-content: space-around;
+    /* 要素間を均等に配置 */
+    align-items: center;
+    /* 垂直方向に中央揃え */
+    margin-bottom: 20px;
+    /* アイテム間の余白 */
+  }
+
+  .two-set-baner {
+    width: 200px;
+    height: 40px;
+    border: #999999;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .two-set a {
+    display: block;
+    /* リンクをブロックレベル要素にする */
+    position: relative;
+  }
+
+  .two-set img {
+    /* max-width: 100%; */
+    /* 画像がコンテナからはみ出ないようにする */
+    height: auto;
+    /* 縦横比を維持 */
+
+
+  }
+
+  .responsive-image_event {
+    width: 320px;          /* 画像の横幅を一定に固定 */
+    /* aspect-ratio: 16 / 9;  高さを揃えるため比率を固定（横16:縦9の例） */
+    object-fit: cover;     /* 画像を歪ませずに枠に合わせてトリミングする */
+    display: block;
+    margin: 15px;          /* 余白を設けて他の画像との干渉を防ぐ */
+    border-radius: 1.5rem;
+  }
+
+  /* 重ねるGIF画像の設定 */
+  .overlay-gif {
+    position: absolute;
+    transform: scale(2); /* 縦横2倍 */
+    top: 25px;  /* 下敷き画像のmargin(15px) + 画像内側の余白(10px) */
+    left: 25px; /* 下敷き画像のmargin(15px) + 画像内側の余白(10px) */
+    z-index: 10; /* 他の要素より手前に表示させる */
+  }
+
+  .responsive-image_banar {
+    width:200px;
+    height:40px;
+    display: block;
+    /* margin: 0 auto; */
+    margin: 5px;
+    height: auto;
+    
+    position: relative;
+    text-align: center;
+  }
+
+
+  /* soundのセレクタ */
+  .sound-button-set {
+    display: flex;
+    justify-content: center;
+    /* 水平方向の中央揃え */
+    align-items: center;
+    /* 垂直方向の中央揃え */
+    height: 100vh;
+    /*親要素の高さを画面全体に */
+    width: 100vh;
+  }
+
+  .margin-button {
+    margin-right: 20px;
+  }
+
+  #tightcol {
+    width: 250px;
+    background-color: rgba(255, 232, 163, 0.6);
+    flex-shrink: 0;
+    
+    padding: 20px;
+    border-radius: 1.5rem;
+  }
+
+.counter{
+  background-color:rgba(255, 232, 163, 0.6);
+  padding: 10px;
+  border-radius: 1.5rem;
+}
+
+.text-style{
+  text-decoration: none;
+}
+  .counter-digit-img {
+    /* height: 1.2em; 周りのテキストの高さに合わせる */
+    height: 3em;
+    vertical-align: middle; /* テキストとの縦のズレを調整 */
+    margin: 0 1px; /* 数字同士のわずかな隙間 */
+}
+
+/* ハエ叩きモード用トグルスイッチ */
+.switch-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px 0;
+}
+.switch-label input {
+    display: none;
+}
+.switch-slider {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    transition: .4s;
+}
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+.switch-label input:checked + .switch-slider {
+    background-color: #ff3232;
+}
+.switch-label input:checked + .switch-slider:before {
+    transform: translateX(20px);
+}
+
+/* スイッチ無効（クリア後）時のスタイル */
+.switch-label input:disabled + .switch-slider {
+    background-color: #555;
+    cursor: not-allowed;
+}
+.switch-label input:disabled ~ .nav_text {
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ハエ叩きモード有効時の画面制御 */
+body.fly-swatter-active {
+    cursor: crosshair !important; /* 画面全体を照準カーソルにし、通常のポインタを隠す */
+    user-select: none !important; /* テキストの範囲選択を無効化 */
+    -webkit-user-select: none !important; /* Safari/iOS用 */
+}
+body.fly-swatter-active * {
+    pointer-events: none !important; /* 既存要素をクリック不可に */
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+body.fly-swatter-active #fly-swatter-overlay,
+body.fly-swatter-active #fly-swatter-overlay * {
+    pointer-events: auto !important; /* オーバーレイは可能に */
+}
+body.fly-swatter-active .fly-element {
+    pointer-events: auto !important; /* ハエは可能に */
+    cursor: crosshair !important;    /* 照準カーソル */
+}
+body.fly-swatter-active .switch-label,
+body.fly-swatter-active .switch-label * {
+    pointer-events: auto !important; /* スイッチは操作可能に */
+}
+
+/* 全滅時のポップアップと暗転背景 */
+#fly-swatter-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 10000;
+    justify-content: center; align-items: center;
+}
+.fly-swatter-popup {
+    background: rgba(255, 232, 163, 0.9);
+    padding: 30px;
+    border-radius: 1.5rem;
+    text-align: center;
+    border: 2px solid #793e17;
+}
+.fly-swatter-popup h2 {
+    color: #793e17;
+    margin-top: 0;
+}
+.fly-swatter-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+.fly-swatter-images img {
+    width: 256px;
+    height: 256px;
+    object-fit: contain;
+}
+.fly-swatter-popup button {
+    background-color: #793e17;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+}
+.fly-swatter-popup button:hover {
+    background-color: #ff3232;
+}
+}

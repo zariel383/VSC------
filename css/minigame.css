@@ -1,0 +1,19 @@
+/* body{
+    background-image: url("/imarge/sikosekinin.gif");
+}
+ */
+#gameCanvas {
+    border: 1px solid #ccc;
+}
+
+body {
+    overflow: hidden; /* スクロールバーを非表示 */
+    width: 100%;
+    height: 100%;
+}
+            
+.sound-button-set button {
+ display:flex;
+ justify-content: center;
+ align-items: center;
+} 

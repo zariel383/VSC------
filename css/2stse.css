@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+body {
+    background-color: #000000;
+    color: #ffee00;
+    font-family: "MS PGothic", sans-serif;
+    margin: 0;
+    padding: 20px;
+    /* Flexboxによるレイアウト */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* リンク色設定 */
+a { color: #FFFF00; }
+a:visited { color: #FF00FF; }
+a:active { color: #FF0000; }
+
+/* コンテナ */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* タイトル */
+.page-title {
+    font-size: 3rem; /* font size="7" 相当 */
+    color: #ffee00;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* 水平線 */
+.separator {
+    width: 90%;
+    border: none;
+    border-top: 1px solid #ffee00;
+    margin: 20px 0;
+}
+
+/* マーキー（アニメーションで再現） */
+.marquee-box {
+    width: 80%;
+    background-color: #000033;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px 0;
+}
+
+.marquee-text {
+    display: inline-block;
+    color: #ffee00;
+    padding-left: 100%;
+    animation: marquee-anim 15s linear infinite;
+}
+
+@keyframes marquee-anim {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* テキストサイズ */
+.text-large { font-size: 1.2rem; } /* size="4" 相当 */
+.text-small { font-size: small; }  /* size="2" 相当 */
+.text-red { color: #ffee00; }
+
+/* テーブルスタイル */
+.teble-image{
+    max-width: 256px;
+    max-height: 256px;
+}
+
+.se-table {
+    width: 1500px;
+    max-width: 95%;
+    background-color: #333333;
+    border: 3px solid #ffee00;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.se-table th, .se-table td {
+    border: 1px solid #ffee00;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.se-table th {
+    background-color: #333333;
+    color: #ffee00;
+    width: auto;
+}
+
+.align-center { text-align: center; }
+.align-left { text-align: left; }
+
+.audio-player {
+    width: 200px;
+    height: 30px;
+}

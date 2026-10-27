@@ -1,0 +1,15 @@
+.container {
+    width: 200px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden; /* テキストがはみ出ないようにする */
+  }
+  
+  .text {
+    transform: translateX(100%); /* 初期状態では下に隠す */
+    transition: transform 0.1s ease; /* 滑らかなアニメーション */
+  }
+  
+  .container:hover .text {
+    transform: translateY(0); /* ポインターが重なると表示 */
+  }

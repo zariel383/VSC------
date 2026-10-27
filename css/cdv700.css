@@ -1,0 +1,348 @@
+/* カスタムフォントの読み込み */
+@font-face {
+    font-family: 'Wapuro Mincho'; /* CSS内で呼び出すための名前を自由に付けます */
+    src: url('/fontstyle/wapuro-mincho.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 
+ * 全体設定
+ * 後からフォントや色を変更しやすいようにCSS変数（カスタムプロパティ）を使用します。
+ */
+:root {
+    /* フォントファミリの指定。ここを変更するとページ全体のフォントが変わります */
+    --main-font-family: 'Wapuro Mincho', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+
+    --serif-font-family: 'Wapuro Mincho', Times, 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    --monospace-font-family: 'Courier New', Courier, 'BIZ UDGothic', monospace;
+    
+    /* カラー設定 */
+    --text-color: #000000;      /* 黒文字 */
+    --bg-color: #e0e5ec;        /* ブラウザ背景（薄いグレー） */
+    --sheet-bg-color: #ffffff;  /* A4用紙の背景（白） */
+    --border-color: #000000;    /* 罫線の色 */
+    --placeholder-text-color: #888888; /* プレースホルダーの文字色 */
+}
+
+/* --- フォント切り替え用セレクタ --- */
+/* 対象のHTML要素に以下のクラスを追加することでフォントの種類を指定・変更できます */
+.font-serif {
+    --main-font-family: var(--serif-font-family);
+}
+
+.font-monospace {
+    --main-font-family: var(--monospace-font-family);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #323639; /* PDFブラウザビューアのような暗い背景 */
+    font-family: var(--main-font-family);
+    color: var(--text-color);
+}
+
+/* --- PDFビューア風レイアウト --- */
+.pdf-viewer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #525659;
+}
+
+.pdf-toolbar {
+    background-color: #323639;
+    color: #f1f1f1;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    font-size: 14px;
+    z-index: 10;
+}
+
+/* メインコンテナ（サイドバーとコンテンツの横並び用） */
+.pdf-main-container {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden; /* コンテナ自体はスクロールさせず、子要素に委ねる */
+}
+
+/* サイドバー（プレビュー領域） */
+.pdf-sidebar {
+    width: 200px;
+    background-color: #323639;
+    border-right: 1px solid #1a1a1a;
+    overflow-y: auto;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+    z-index: 5;
+}
+
+.pdf-thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pdf-thumbnail {
+    width: 120px;
+    height: 170px; /* A4比率に合わせた枠 */
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+    overflow: hidden;
+    position: relative;
+}
+
+.pdf-thumbnail.active {
+    border-color: #00a8ff; /* 選択中のページは青枠で囲う */
+}
+
+/* 複製したページをプレビューサイズに合わせて縮小表示する */
+.pdf-thumbnail-content {
+    transform: scale(0.151); /* サムネイル幅(120px) / A4幅(約794px) */
+    transform-origin: top left;
+    width: 210mm;
+    height: 297mm;
+    pointer-events: none; /* プレビュー内でのクリックなどを無効化 */
+}
+
+.pdf-thumbnail-label {
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.page-indicator {
+    background-color: #1a1a1a;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.pdf-scroll-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* ページ間の隙間 */
+}
+
+/* A4用紙を模したコンテナ */
+.datasheet {
+    background-color: var(--sheet-bg-color);
+    width: 210mm; /* A4サイズの幅 */
+    height: 297mm; /* A4サイズの高さを固定 */
+    padding: 20mm 20mm 30mm 20mm; /* 紙の余白（フッター領域確保のため下部を広くする） */
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 影を少し強めに */
+    font-size: 10.5pt;
+    line-height: 1.6;
+    flex-shrink: 0;
+    overflow: hidden; /* はみ出し判定用・はみ出た部分を隠す */
+    position: relative;
+}
+
+/* ヘッダー領域（ロゴや文書番号など） */
+.ds-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+}
+
+.ds-logo {
+    font-size: 24pt;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.ds-doc-info {
+    text-align: right;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+/* タイトルと外観図をまとめるコンテナ */
+.ds-main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.ds-title-section {
+    flex-grow: 1;
+}
+
+.ds-part-number {
+    font-size: 32pt;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.ds-description {
+    font-size: 14pt;
+    margin: 5px 0 0 0;
+    font-weight: bold;
+}
+
+/* fooderの現在ページの表示を管理するコンテナ */
+.ds-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10mm; /* 用紙の余白内に配置する */
+    left: 20mm;
+    right: 20mm;
+    font-size: 9pt;
+    color: #555;
+}
+
+/* 外観図セクション */
+.ds-appearance-section {
+    flex-shrink: 0;
+    width: 180mm; /* 幅を調整 */
+    max-width: 40%; /* 最大幅 */
+}
+
+.ds-appearance-placeholder {
+    border: 2px dashed var(--border-color);
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10pt;
+    color: var(--placeholder-text-color);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.ds-appearance-image {
+    width: 100%;
+    height: 350px;
+    /* border: 1px solid var(--border-color); */
+}
+
+/* 各セクションの見出し */
+.ds-section-title {
+    font-size: 12pt;
+    font-weight: bold;
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 35px;
+    margin-bottom: 15px;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+/* 画像ギャラリー */
+.ds-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.ds-gallery img {
+    width: 100%;
+    max-height: 360px;
+    max-width: auto;
+}
+
+/* 特徴リスト */
+.ds-features-list {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.ds-features-list li {
+    margin-bottom: 6px;
+}
+
+/* データシート特有の表（テーブル） */
+.ds-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    font-size: 10pt;
+}
+
+.ds-table th, .ds-table td {
+    border: 1px solid var(--border-color);
+    padding: 6px 10px;
+    text-align: left;
+}
+
+.ds-table th {
+    font-weight: bold;
+    text-align: center;
+}
+
+.ds-table-center {
+    text-align: center !important;
+}
+
+.ds-table-imarge{
+    /* overflow: 50px; */
+    width: 100%;
+    height: 100%;
+}
+
+.ds-note {
+    font-size: 8.5pt;
+    margin-top: 0;
+}
+
+/* 印刷時のスタイル調整 */
+@media print {
+    body {
+        background-color: transparent;
+        padding: 0;
+    }
+    .datasheet {
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* セクションやテーブルが途中で改ページされるのを防ぐ */
+    section, .ds-main-header {
+        page-break-inside: avoid;
+    }
+
+    /* テーブルは行単位での分割を許可 */
+    .ds-table {
+        page-break-inside: auto; 
+    }
+
+    /* テーブルヘッダーを各ページに繰り返し表示 */
+    .ds-table thead {
+        display: table-header-group;
+    }
+}

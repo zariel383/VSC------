@@ -1,0 +1,38 @@
+# ==============================================================================
+# セキュリティ強化設定 (.htaccess)
+# ==============================================================================
+
+# ディレクトリ一覧表示の禁止
+Options -Indexes
+
+# 設定ファイル・機密ファイル・テキストファイルへの直接Webアクセスを遮断
+<FilesMatch "^(config\.php|count\.txt|\.env.*|\.git.*)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ドットから始まる隠しファイルへのアクセスを拒否
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# セキュリティレスポンスヘッダーの付与
+<IfModule mod_headers.c>
+    # MIMEタイプのスニッフィングを抑止
+    Header set X-Content-Type-Options "nosniff"
+    # クリックジャッキング対策（自ドメイン内のみframe表示を許可）
+    Header set X-Frame-Options "SAMEORIGIN"
+    # リファラーポリシー設定
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

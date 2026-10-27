@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>どこかの場所と音</title>
+</head>
+<body>
+    <style>
+        .photo{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-styly{
+            height: 400px;
+            width: 640px;
+            cursor: pointer; /* クリックできることを分かりやすくするためカーソルを変更 */
+        }
+    </style>
+
+    <div class="photo">
+        <img src="/imarge/dokoda.png" alt="どこのおと " title="どこのおと" class="photo-styly" id="dokoda-image">
+    </div>
+
+    <script>
+        const imageElement = document.getElementById('dokoda-image');
+        // ※実際の音声ファイルのパスに合わせて変更してください
+        const sound = new Audio('/voise/dokokano.mp3'); 
+
+        imageElement.addEventListener('click', () => {
+            sound.currentTime = 0; // 連続でクリックした際に最初から再生し直す
+            sound.play();
+        });
+    </script>
+</body>
+</html>

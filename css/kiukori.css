@@ -1,0 +1,35 @@
+:root {
+    /* フォントファミリの指定。ここを変更するとページ全体のフォントが変わります */
+    --main-font-family: 'Wapuro Mincho', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+
+    --serif-font-family: 'Wapuro Mincho', Times, 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+    --monospace-font-family: 'Courier New', Courier, 'BIZ UDGothic', monospace;
+    
+    /* カラー設定 */
+    --text-color: #000000;      /* 黒文字 */
+    --bg-color: #e0e5ec;        /* ブラウザ背景（薄いグレー） */
+    --sheet-bg-color: #ffffff;  /* A4用紙の背景（白） */
+    --border-color: #000000;    /* 罫線の色 */
+    --placeholder-text-color: #888888; /* プレースホルダーの文字色 */
+}
+
+body {
+    font-family: var(--main-font-family);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 5em;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid var(--border-color);
+    margin-bottom: 50px; /* タイトル下のラインからコンテンツまでの空白 */
+}

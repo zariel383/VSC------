@@ -1,0 +1,31 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "[\n  {\n    \"word\": \"Красивая\",\n    \"phonetic\": \"krɐˈsʲivəjə\",\n    \"analysis\": {\n      \"pos\": \"形容詞\",\n      \"base\": \"красивый\",\n      \"note\": \"女性単数主格\",\n      \"aspect\": null,\n      \"case\": \"主格\",\n      \"case_change\": \"女性単数\",\n      \"gender\": \"女性\",\n      \"person\": null,\n      \"tense\": null\n    },\n    \"relation\": {\n      \"target_index\": 1,\n      \"type\": \"修飾\"\n    }\n  },\n  {\n    \"word\": \"девушка\",\n    \"phonetic\": \"ˈdʲevʊʂkə\",\n    \"analysis\": {\n      \"pos\": \"名詞\",\n      \"base\": \"девушка\",\n      \"note\": \"女性単数主格\",\n      \"aspect\": null,\n      \"case\": \"主格\",\n      \"case_change\": \"単数\",\n      \"gender\": \"女性\",\n      \"person\": null,\n      \"tense\": null\n    },\n    \"relation\": {\n      \"target_index\": 2,\n      \"type\": \"主語\"\n    }\n  },\n  {\n    \"word\": \"читает\",\n    \"phonetic\": \"t͡ɕɪˈtatʲ\",\n    \"analysis\": {\n      \"pos\": \"動詞\",\n      \"base\": \"читать\",\n      \"note\": \"不完了体現在三人称単数\",\n      \"aspect\": \"不完了体\",\n      \"case\": null,\n      \"case_change\": null,\n      \"gender\": null,\n      \"person\": \"三人称単数\",\n      \"tense\": \"現在\"\n    },\n    \"relation\": {\n      \"target_index\": null,\n      \"type\": \"述語\"\n    }\n  },\n  {\n    \"word\": \"интересную\",\n    \"phonetic\": \"ɪnʲtʲɪˈresnʊjʊ\",\n    \"analysis\": {\n      \"pos\": \"形容詞\",\n      \"base\": \"интересный\",\n      \"note\": \"女性単数対格\",\n      \"aspect\": null,\n      \"case\": \"対格\",\n      \"case_change\": \"女性単数\",\n      \"gender\": \"女性\",\n      \"person\": null,\n      \"tense\": null\n    },\n    \"relation\": {\n      \"target_index\": 4,\n      \"type\": \"修飾\"\n    }\n  },\n  {\n    \"word\": \"книгу\",\n    \"phonetic\": \"ˈknʲiɡʊ\",\n    \"analysis\": {\n      \"pos\": \"名詞\",\n      \"base\": \"книга\",\n      \"note\": \"女性単数対格\",\n      \"aspect\": null,\n      \"case\": \"対格\",\n      \"case_change\": \"単数\",\n      \"gender\": \"女性\",\n      \"person\": null,\n      \"tense\": null\n    },\n    \"relation\": {\n      \"target_index\": 2,\n      \"type\": \"目的語\"\n    }\n  },\n  {\n    \"word\": \".\",\n    \"phonetic\": null,\n    \"analysis\": {\n      \"pos\": \"句読点\",\n      \"base\": \".\",\n      \"note\": \"文末記号\"\n    },\n    \"relation\": null\n  }\n]",
+            "thoughtSignature": "EnMKcQFpFH0Te/RLyPzkC4QhjMw2HoVQWfOH4sSwAb0e1ODcY5OIIB6TcimGV1ftrV10i4LDJKR89+ygXiKxiYfinT87+/BH1iIlQBOwKWBXOdtDBohJU7vZM+Uqt4CLmQ6MGz537eCHkjZsTT88zT3Nueq/"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "index": 0
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 154,
+    "candidatesTokenCount": 809,
+    "totalTokenCount": 963,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 154
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "modelVersion": "gemini-3.1-flash-lite",
+  "responseId": "cH_faoKUCrTYrfcP7__N4Qk"
+}

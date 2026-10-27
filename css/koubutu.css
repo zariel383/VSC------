@@ -1,0 +1,443 @@
+html {
+    scrollbar-gutter: stable;
+}
+
+/* デバイス制御 */
+@media screen and (max-width: 768px) {
+/* 768px以下の画面幅用のスタイル */
+
+}
+
+/* iPhone用のスタイル */
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+@media screen{
+
+    body{
+        color: #ff9100;
+        background-color: #ffffff;
+    a:link{    color: #ffffff;}
+    a:visited{ color: #ffffff;} /* 既に見たリンク */
+    a:active{  color: #ffffff;} /* 今回見たリンク */
+    a:hover{   color: #ff3232;} /* カーソルが上にあるとき */
+    }
+}
+
+
+
+
+/* 画面サイズ制御 */
+@media (max-width: 1366px) { /* 画面幅が768px以下の場合 */
+
+    .target-text-mobile{
+        display: block;
+    }
+
+    .target-text-pc{
+        display: none;
+    }
+
+    .maincol {
+      font-size: 9px; /* 文字サイズを小さくする */
+    }
+
+    .main_img{
+        width: 200px;
+        height: auto;
+    }
+
+    .sab_img{
+        width: 66.66px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* ポップアップウィンドウ */
+    .mineral-button{
+        width: 200px;
+        height: auto;
+    }
+
+    /* モバイル　メニューボタン */
+    .menu_text_sab{
+        opacity: 1; /* 初期状態では非表示 小数点以下の調節可*/
+
+
+        font-size: 20px;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .scrollbutton_set{
+        display: flex;
+        justify-content: center;
+
+        cursor: pointer;
+
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1367px){
+
+    .target-text-mobile{
+        display: none;
+    }
+
+    .target-text-pc{
+        display: block;
+    }
+
+    body{
+        font-size: 16px;
+    }
+
+    .main_img{
+        width: 600px;
+        height: auto;
+    }
+
+    .sab_img{
+        width: 200px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* ポップアップウィンドウ */
+    .mineral-button{
+        width: 600px;
+        height: auto;
+    }
+
+
+    .menu_text_sab{
+        opacity: 0.02;
+        transition: opacity 0.2s ease;
+
+        font-size: 20px;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .scrollbutton_set{
+        display: flex;
+        justify-content: center;
+
+        cursor: pointer;
+
+        opacity: 0.09;
+        transition: opacity 0.2s ease;
+    }
+}
+
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src:
+      url('/fontstyle/KOKORO.OTF') format('woff'), /* 優先度の高い形式から順に指定 */
+      url('fonts/my-custom-font.woff') format('woff'),
+      url('fonts/my-custom-font.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 子要素を垂直方向中央揃え */
+    font-family: 'MyCustomFont', sans-serif; /* ダウンロードしたフォントを優先し、次にsans-serif系のフォントを指定 */
+}
+
+/* スクロール禁止用クラス */
+/* body.noscroll {
+    overflow: hidden;
+    /* height: 100vh; */
+    /* width: 100%;
+} */
+
+.a{
+    text-decoration: none;
+}
+
+.url-desaine{
+    a:link{    color: #ffffff;}
+    a:visited{ color: #ffffff;} /* 既に見たリンク */
+    a:active{  color: #ffffff;} /* 今回見たリンク */
+    a:hover{   color: #ff3232;} /* カーソルが上にあるとき */
+}
+
+
+.first-letter-span{
+    font-size: 1.5em;
+}
+
+/* メニューボタン */
+.menu_contenar{
+    height: auto;
+    width: 100%;
+    margin-top: 50px;
+
+    display: flex;
+}
+
+.menu_button{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* .menu_text{
+
+} */
+
+.nav_text{
+  list-style: none;
+  font-size: 30px;
+}
+/*
+.menu_text_sab{
+    opacity: 0.02;
+    transition: opacity 0.2s ease;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+}
+ */
+.menu_text:hover .menu_text_sab{
+    opacity: 1; /* ポインターが重なると表示 */
+  }
+
+
+
+ /* メニューカード */
+ .menu-card-title{
+    font-size: 20px;
+ }
+
+ .sabmenu-card-title{
+    font-size: 20px;
+ }
+
+ .menu-card-title::first-letter {
+    font-size: 1.5em;
+  }
+
+
+
+/* スクロールボタン */
+.scrollbutton{
+    margin: 50px;
+
+    display: flex;
+    flex-direction: column;
+
+     display: block; /*イベント処理用*/
+}
+/*
+.scrollbutton_set{
+    display: flex;
+    justify-content: center;
+
+    cursor: pointer;
+
+    opacity: 0.02;
+    transition: opacity 0.2s ease;
+}
+ */
+.scrollbutton:hover .scrollbutton_set{
+    opacity: 1; /* ポインターが重なると表示 */
+}
+
+.menu-jpg{
+    border-radius: 100%;
+}
+
+
+/* ポップアップウィンドウ */
+.mineral-popup{
+    display: none;
+}
+
+
+
+/* メイン */
+.maincol{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+.header,.tentative-text,.maincol-bydevice-text{
+    text-align: center; /* 文字を中央揃え */
+}
+
+.main{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 垂直方向に中央揃え */
+}
+.main_img_parent{
+    overflow: hidden; /* 画像がはみ出ないように */
+}
+
+/* メイン画像のデザイン */
+.main_img{
+    transition: all 0.1s 0s ease-in;
+
+    border-radius: 30%;
+
+    object-fit: cover; /* 画像をコンテナに合わせて調整 */
+
+    cursor: pointer;
+
+}
+
+.sab_img{
+    border-radius: 30%;
+    object-fit: cover; /* 画像をコンテナに合わせて調整 */
+
+}
+
+.main_img_parent:hover > .main_img{
+    transform: scale(1.05);
+}
+
+.margin{
+    margin-bottom: 5000px;
+}
+
+.menu-jpg{
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: auto;
+}
+
+.main_defaultlayout {
+    margin-bottom: 100px;
+    display: flex; /* Flexboxコンテナにする */
+    flex-direction: row;
+}
+
+
+/* カードテンプレ */
+.card-size{
+    width: 300px;
+    height: auto;
+}
+
+
+
+.card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw; /* 画面幅の80% */
+    height: 90%;
+    max-width: 500px; /* 最大幅を500pxに制限 */
+    max-height: 1300px;
+    transform: translate(-50%, -50%);
+    overflow-wrap: break-word; /* divの範囲内で改行させる */
+
+
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    overflow: hidden; /*画像がはみ出ないように */
+    background-color:rgb(0, 0, 0);
+}
+
+.card{
+    overflow: auto;
+}
+
+.item_list_link{
+    text-decoration: none;
+  }
+
+.card::-webkit-scrollbar {
+    background-color:rgba(0, 0, 0, 0);
+    border-radius: 5px;
+}
+
+.card::-webkit-scrollbar-corner {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+/* ::-webkit-scrollbar{
+    background: transparent;
+  } */
+
+
+/* Firefox */
+
+.card-image {
+    height: auto;
+    background-color: #ff0000; /* 画像がない場合の背景色 */
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden; /* 画像がはみ出ないように */
+
+
+}
+
+.image-holder {
+    background: rgba(0, 0, 0, 0);
+    padding-bottom: 0%;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* .card-body ,.card-text .card-title{
+
+} */
+
+
+
+.card-title {
+    margin-bottom: 10px;
+}
+
+
+
+.card-text{
+    font-size: 14px;
+}
+
+.cald-end-button-set{
+    display:flex;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: flex-end;
+}
+
+.card-button {
+    background-color: #000000; /* Bootstrapのプライマリカラー */
+    color: white;
+    border: 0px solid #000000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* card end */
+
+
+
+/* box-shadow: 0 100px 500px rgba(0, 0, 0, 0.1); 影のついか*/

@@ -1,0 +1,41 @@
+body {
+  display: flex; /* フレックスボックスでレイアウト */
+  flex-direction: column; /* 縦方向に並べる */
+  min-height: 100vh; /* bodyの高さを画面いっぱいにする */
+  margin: 0;
+}
+
+header {
+  background-color: pink;
+  padding: 1rem;
+}
+
+.container {
+  display: flex;
+  flex: 1; /* containerの高さを最大化する */
+}
+
+.sidebar {
+  background-color: lightgreen;
+  width: 200px; /* サイドバーの幅 */
+  padding: 1rem;
+}
+
+.main-content {
+  background-color: lavender;
+  flex: 1; /* メインコンテンツの幅を最大化する */
+  padding: 1rem;
+}
+
+footer {
+  background-color: lightgray;
+  padding: 1rem;
+}
+
+/* 【article.js】 */
+
+/* 画像はみだし防止*/
+.article-body img {
+    max-width: 100%;
+    height: auto;
+}

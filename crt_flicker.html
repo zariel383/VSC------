@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブラウン管電子ビームシュミレータ！</title>
+    <link rel="stylesheet" href="/css/indexcss.css?v=20260405">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #2c2c2c;
+        }
+        .main-layout {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .panel-area {
+            flex: 0 0 400px;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .preview-wrapper {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            container-type: size;
+        }
+        .preview-area {
+            aspect-ratio: 4 / 3;
+            width: 100cqw;
+            height: 100cqh;
+            max-width: calc(100cqh * 4 / 3);
+            max-height: calc(100cqw * 3 / 4);
+            background-image: url("/imarge/dokokano.jpg");
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px; /* ブラウン管のような大きな丸み */
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 60px rgba(0, 0, 0, 0.8); /* 内側に影を落としてガラスの厚みと周辺減光を表現 */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .preview-placeholder {
+            color: #555;
+            font-size: 1.2rem;
+            user-select: none;
+            pointer-events: none;
+        }
+        .crt-container {
+            background-color: rgba(255, 232, 163, 0.9);
+            padding: 20px;
+            border-radius: 1.5rem;
+            width: 100%;
+            border: 2px solid #793e17;
+            position: relative;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <!-- 左側：操作パネル -->
+        <div class="panel-area">
+            <div class="crt-container">
+                <h2 style="text-align: center; margin-top: 0; font-size: 1.5rem;">ブラウン管(アナログ)テレビはどのように投影しているの？</h2>
+                <div style="font-size: 12px; line-height: 1.5; color: #444; margin-bottom: 10px; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px;">
+                    今回のサイトは電子ビームを再現したシュミレータを作成しました。<br>
+                    速度を自在に操り遊んでみてください。<br>
+                    このサイトの特徴:電子ビームの挙動をできるだけ再現したため、カメラなどのセンサー越しに見たブラウン管の向きが変化するちらつき「CRTフリッカー現象」を体験できます。
+                    <br>
+                    【簡単な説明】<br>
+                    ブラウン管は、奥にある「電子銃」から放たれたビームが、画面の裏側に塗られた「蛍光体」を光らせる仕組みです。
+                    ビームは左上から右下へ、1行ずつ超高速で移動（走査）して絵を描いています。
+                    あまりに速いため人間の目には1枚の絵に見えますが、カメラを通すとその移動の跡が「フリッカー」として確認できます。
+                    <br>※減衰率が低い状態で移動速度を極端に上げるとPCに負荷がかかる可能性があります※
+                    <br>
+                    参考動画「https://www.youtube.com/watch?v=3BJU2drrtCM」
+                    <iframe width="100%" style="aspect-ratio: 16 / 9; margin-top: 10px;" src="https://www.youtube.com/embed/3BJU2drrtCM?si=5RlLqU5dUrgXXc4B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+        <div id="crt-debug-sliders" style="padding-left: 10px; margin-top: 10px; border: 1px solid #793e17; border-radius: 5px; padding: 10px; background-color: rgba(255,255,255,0.8);">
+            <label style="display:block; font-size: 14px; margin-bottom: 5px;">帯の細さ (1/X): <span id="band-height-val">600</span>
+                <input type="range" id="band-height-slider" min="1" max="2000" step="1" value="600" style="width:100%;">
+            </label>
+            <label style="display:block; font-size: 14px;">移動速度 (1単位): <span id="scanline-speed-int-val">5</span>
+                <input type="range" id="scanline-speed-int-slider" min="0" max="1000" step="1" value="5" style="width:100%;">
+            </label>
+            <label style="display:block; font-size: 14px;">移動速度 (.0単位): <span id="scanline-speed-dec1-val">0.0</span>
+                <input type="range" id="scanline-speed-dec1-slider" min="0" max="0.9" step="0.1" value="0" style="width:100%;">
+            </label>
+            <label style="display:block; font-size: 14px;">移動速度 (.00単位): <span id="scanline-speed-dec2-val">0.00</span>
+                <input type="range" id="scanline-speed-dec2-slider" min="0" max="0.09" step="0.01" value="0" style="width:100%;">
+            </label>
+            <label style="display:block; font-size: 14px;">移動速度 (.000単位): <span id="scanline-speed-dec3-val">0.000</span>
+                <input type="range" id="scanline-speed-dec3-slider" min="0" max="3000" step="100" value="0" style="width:100%;">
+            </label>
+            <label style="display:block; font-size: 14px; margin-top: 5px;">減衰率 (フェード速度): <span id="crt-fade-val">0.35</span>
+                <input type="range" id="crt-fade-slider" min="0.01" max="1.0" step="0.01" value="0.35" style="width:100%;">
+            </label>
+            <label style="display:block; font-size: 14px; margin-top: 5px;">黒の不透明度 (全体の濃さ): <span id="crt-darkness-val">0.85</span>
+                <input type="range" id="crt-darkness-slider" min="0.01" max="1.0" step="0.01" value="0.85" style="width:100%;">
+            </label>
+            <div style="font-size: 14px; text-align: right; margin-top: 5px; font-weight: bold;">合計速度: <span id="scanline-speed-total-val">5.000</span></div>
+            
+            <div style="border-top: 1px solid #793e17; margin-top: 15px; padding-top: 15px;">
+                <button id="crt-animate-btn" style="width: 100%; padding: 8px; background-color: #793e17; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">起動</button>
+                <div style="display: flex; justify-content: space-around; margin-top: 10px; text-align: center;">
+                    <div>
+                        <label style="font-size: 12px; display: block;">移動速度カーブ</label>
+                        <canvas id="bezier-editor-speed" width="120" height="120" style="border: 1px solid #793e17; background: #fff; border-radius: 4px; cursor: pointer;"></canvas>
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; display: block;">減衰率カーブ</label>
+                        <canvas id="bezier-editor-fade" width="120" height="120" style="border: 1px solid #793e17; background: #fff; border-radius: 4px; cursor: pointer;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+
+        <!-- 右側：プレビュー領域 -->
+        <div class="preview-wrapper">
+            <div class="preview-area" id="crt-preview-container">
+            </div>
+        </div>
+    </div>
+
+    <!-- CRTフリッカー再現スクリプト -->
+    <script src="/javascript/crt_flicker.js"></script>
+</body>
+</html>

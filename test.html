@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @page {
+            size: A4;
+            margin: 18mm 16mm;
+            background-color: #f8fafc;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.6;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: 24px 20px;
+            margin: -18mm -16mm 25px -16mm;
+            border-bottom: 4px solid #3b82f6;
+        }
+        .header h1 {
+            font-size: 20pt;
+            margin: 0 0 6px 0;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .header p {
+            font-size: 11pt;
+            margin: 0;
+            color: #93c5fd;
+        }
+
+        /* 導入文 */
+        .intro-box {
+            background-color: #ffffff;
+            border-radius: 6px;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3b82f6;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .intro-box p {
+            margin: 0 0 10px 0;
+            font-size: 11pt;
+        }
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 大見出し */
+        h2 {
+            font-size: 14pt;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            page-break-after: avoid;
+        }
+
+        /* セクション構成 */
+        .section-container {
+            margin-bottom: 25px;
+        }
+        
+        /* 構成要素テーブル */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            margin-bottom: 15px;
+            background-color: #ffffff;
+            font-size: 10pt;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 600;
+            width: 25%;
+        }
+
+        /* シミュレーター連動・解説ボックス */
+        .point-box {
+            background-color: #eff6ff;
+            border: 1px dashed #bfdbfe;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            page-break-inside: avoid;
+        }
+        .point-box.lcd {
+            background-color: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+        .point-title {
+            font-weight: bold;
+            font-size: 10.5pt;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+        .point-title.crt { color: #1d4ed8; }
+        .point-title.lcd { color: #15803d; }
+        
+        .point-box ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .point-box li {
+            margin-bottom: 4px;
+        }
+        .point-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* メモ・補足 */
+        .ui-note {
+            background-color: #fff7ed;
+            border: 1px solid #ffedd5;
+            color: #9a3412;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 9.5pt;
+            margin-top: 30px;
+            page-break-inside: avoid;
+        }
+        .ui-note h3 {
+            margin: 0 0 6px 0;
+            font-size: 10.5pt;
+            color: #c2410c;
+        }
+        .ui-note ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        /* 強調文字 */
+        .highlight {
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .highlight-green {
+            font-weight: bold;
+            color: #16a34a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>電子ビームシミュレーター WEBサイト用リライト案</h1>
+        <p>技術解説とシミュレーターの操作体験を有機的に結びつけるWebコンテンツ構成</p>
+    </div>
+
+    <div class="intro-box">
+        <p>ご提示いただいた文章を、<strong>「電子ビームシミュレーター」というWebサイトの特性（ユーザーが操作・体験できる）</strong>を最大限に活かせるようリライトしました。</p>
+        <p>ただ読むだけの読み物ではなく、シミュレーターを動かす動機付け（何に注目して操作すればよいか）となる構成に仕上げています。</p>
+    </div>
+
+    <h2>画面レイアウト・テキスト構成案</h2>
+
+    <!-- 導入セクション -->
+    <div class="section-container">
+        <p style="font-size: 11pt; font-weight: bold; color: #1e3a8a; margin-bottom: 8px;">【キャッチコピー・導入文】</p>
+        <div style="background-color: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 6px;">
+            <h3 style="margin: 0 0 12px 0; font-size: 13pt; color: #0f172a; border-left: 4px solid #3b82f6; padding-left: 8px;">
+                一瞬の光で描くか、無数の窓を開閉するか。<br>映像テクノロジーの進化をシミュレーターで体感しよう！
+            </h3>
+            <p style="margin: 0; font-size: 10.5pt; color: #334155;">
+                かつての主流だった「ブラウン管（CRT）」と、現代の「液晶（LCD）」。画面に映像が映る仕組みは、根本から異なります。<br>
+                最大の違いは、映像を<span class="highlight">「1本のビームで超高速で塗りつぶす」</span>か、<span class="highlight-green">「数百万個の画素を同時にコントロールする」</span>かという点です。<br>
+                当シミュレーターを操作する前に、それぞれの仕組みのディープな違いをチェックしてみましょう。
+            </p>
+        </div>
+    </div>
+
+    <!-- ブラウン管セクション -->
+    <div class="section-container">
+        <h2>1. ブラウン管テレビ（CRT）の仕組み</h2>
+        <p style="margin: -5px 0 10px 0; font-size: 10pt; color: #64748b;">【シミュレーターの主役：電子ビームを放つ「大砲」】</p>
+        <p>ブラウン管は、奥行きのある巨大なガラスの真空管です。1本の光のラインが、驚異的なスピードで画面を構成していく様子をイメージしてください。</p>
+        
+        <table>
+            <tr>
+                <th>電子銃（大砲）</th>
+                <td>画面の奥（テレビの後ろに突き出ている部分）に配置された装置。ここから電子のビーム（電気の流れ）を画面に向かって勢いよく発射します。</td>
+            </tr>
+            <tr>
+                <th>偏向ヨーク<br>（コントロール役）</th>
+                <td>発射されたビームを磁力によって上下左右に超高速で曲げ、画面の左上から右下まで1行ずつ、ほうきで掃くように走査（スキャン）します。</td>
+            </tr>
+            <tr>
+                <th>蛍光体（光る壁）</th>
+                <td>画面の裏側に敷き詰められた物質。電子ビームが衝突した瞬間、その部分がピカッと発光します。</td>
+            </tr>
+        </table>
+
+        <div class="point-box">
+            <div class="point-title crt">💡 直感イメージ ＆ シミュレーターでの注目ポイント</div>
+            <ul>
+                <li><strong>イメージ：</strong> 暗闇の中で1本の強力な懐中電灯（電子ビーム）をものすごい速さで振り回し、残像で壁に光の絵を描いている状態です。</li>
+                <li><strong>シミュレーターで確認！：</strong> <span class="highlight">「走査速度（スキャン速度）」を落とすと、1本のドットが画面を高速移動して線を形作っているプロセスがリアルに目視できます。</span>ぜひ速度ツマミを動かしてみてください！</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 液晶セクション -->
+    <div class="section-container">
+        <h2>2. 液晶テレビ（LCD）の仕組み</h2>
+        <p style="margin: -5px 0 10px 0; font-size: 10pt; color: #64748b;">【比較対象：光の通り道を調節する「無数のシャッター」】</p>
+        <p>液晶テレビは、薄いパネルを何層も重ねた構造です。ブラウン管のようにビームを飛ばす広大な空間が不要なため、圧倒的な薄型化を実現しました。</p>
+        
+        <table>
+            <tr>
+                <th>バックライト（光源）</th>
+                <td>画面の最背面にあるLEDライト。常に画面全体を後ろから均一に照らし続けています。</td>
+            </tr>
+            <tr>
+                <th>液晶層（シャッター）</th>
+                <td>バックライトの前に挟まれた特殊な液体。電気を流すと分子の並び方が変わり、光を通したり遮ったりする「微細なシャッター」として機能します。</td>
+            </tr>
+            <tr>
+                <th>カラーフィルター<br>（色付け）</th>
+                <td>シャッターを通り抜けた光が、赤（R）・緑（G）・青（B）のフィルターを通過することで、人間の目に色鮮やかな映像として届きます。</td>
+            </tr>
+        </table>
+
+        <div class="point-box lcd">
+            <div class="point-title lcd">💡 直感イメージ ＆ ブラウン管との対比</div>
+            <ul>
+                <li><strong>イメージ：</strong> 後ろから大きなライトを当てた状態で、数百万枚の小さな窓（液晶シャッター）を個別に細かく開け閉めし、影絵のように形や色を作っている状態です。</li>
+                <li><strong>ここが違う！：</strong> ブラウン管が「1個の大砲（電子銃）」で全てを描くのに対し、液晶は「数百万個の窓」を同時並行で制御します。<span class="highlight-green">シミュレーターの「CRTモード」と「LCDモード」を切り替えて、描画アプローチの根本的な違いを比較してみましょう。</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Webサイト制作・実装に向けたアドバイス -->
+    <div class="ui-note">
+        <h3>サイトUI・実装に向けたワンポイント・アドバイス</h3>
+        <ul>
+            <li><strong>モード切り替えボタンの設置：</strong> ユーザーが「CRT（電子ビーム）モード」と「LCD（液晶）モード」をワンクリックで切り替えられるUIにすると、本テキストの内容がさらに深く理解できます。</li>
+            <li><strong>パラメーター調整ツマミ（スライダー）：</strong> CRTモードでは「ビームの走査速度（フレームレートやリフレッシュレートの模擬）」「残像時間」、LCDモードでは「画素の細かさ（解像度）」を可変にすると、学習ツールとしての価値が飛躍的に高まります。</li>
+            <li><strong>ビジュアルの工夫：</strong> ブラウン管の解説部分には、電子が飛ぶ軌道を模したサイバー感のある青・緑系の動的ラインを、液晶の解説部分にはRGBマトリクスのグリッド画像を配置するとWebサイトとしての美しさが引き立ちます。</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+</body>
+</html>

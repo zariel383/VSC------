@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>イラストページ</title>
+    <link rel="stylesheet" href="/css/irasut.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <!-- ヘッダー画像 -->
+        <img src="/imarge/IRASUTOBANAR1.PNG" alt="Header Image">
+    </header>
+
+    <!-- タブ切り替えボタン -->
+    <div class="tab-buttons">
+        <button class="tab-btn active" onclick="switchTab('original', this)"></button>
+        <button class="tab-btn" onclick="switchTab('fanart', this)"></button>
+    </div>
+
+    <main>
+        <!-- オリジナルセクション -->
+        <div id="original" class="gallery-section active">
+            <div class="terms-container">
+                <div id="terms-original" class="terms-text">
+                    <!-- <p>【オリジナル作品の利用規約】</p>
+                    <p></p>
+
+                                            <div class="terms-container">
+                        <h2 class="terms-title">オリジナルイラスト 利用規約</h2>
+
+                        <p class="terms-desc">
+                            イラストの著作権は、津之助に帰属します。<br>
+                        </p>
+
+                        <table class="terms-table">
+                            <thead>
+                            <tr>
+                                <th>利用項目</th>
+                                <th style="width: 80px; text-align: center;">可否</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>個人の利用（営利・非営利）</td>
+                                <td class="status status-ok">〇</td>
+                            </tr>
+                            <tr>
+                                <td>加工（トリミング、文字入れ、色調補正など）</td>
+                                <td class="status status-ok">〇</td>
+                            </tr>
+                            <tr>
+                                <td>クレジット表記</td>
+                                <td class="status status-opt">任意</td>
+                            </tr>
+                            <tr>
+                                <td>法人・団体による利用</td>
+                                <td class="status status-ng">✖</td>
+                            </tr>
+                            <tr>
+                                <td>二次配布・販売・素材登録</td>
+                                <td class="status status-ng">✖</td>
+                            </tr>
+                            <tr>
+                                <td>二次創作</td>
+                                <td class="status status-ng">〇</td>
+                            </tr>
+                            <tr>
+                                <td>二次創作・二次配布・販売・素材登録</td>
+                                <td class="status status-ng">✖</td>
+                            </tr>
+                            <tr>
+                                <td>自作発言</td>
+                                <td class="status status-ng">✖</td>
+                            </tr>
+                            <tr>
+                                <td>公序良俗に反する利用</td>
+                                <td class="status status-ng">✖</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="terms-notes">
+                            <p><strong>【免責事項】</strong><br>
+                            当イラストを利用したことにより発生したいかなるトラブルや損害についても、著作者は一切の責任を負いません。ご自身の責任においてご利用ください。</p>
+                            <p><strong>【規約の変更】</strong><br>
+                            本規約は、著作者の判断により事前の予告なく変更される場合があります。常に最新の規約をご確認ください。</p>
+                        </div>
+                        </div> -->
+
+                </div>
+            </div>
+
+            <div class="image-gallery">
+                <!-- 画像アイテム (横4列) -->
+                
+                <div class="gallery-item"><img src="/imarge/IRASUTOBANAR1.PNG" alt="Image 4"></div>
+                <div class="gallery-item"><img src="/imarge/IRASUTOBANAR2.PNG" alt="Image 3"></div>
+                <div class="gallery-item"><img src="/imarge/irast/IMG_2955.PNG" alt="Image 2"></div>
+                <div class="gallery-item"><img src="/imarge/irast/IMG_2953.PNG" alt="Image 1"></div>
+            </div>
+        </div>
+
+        <!-- 二次創作セクション -->
+        <div id="fanart" class="gallery-section">
+            <div class="terms-container">
+                <a class="terms-link" onclick="toggleTerms('terms-fanart')">二次創作物の利用規約</a>
+                <div id="terms-fanart" class="terms-text">
+                    <p>【二次創作物の利用規約】</p>
+                    <p></p>
+
+                    <div class="terms-container">
+
+  <p class="terms-intro">
+    イラストに登場するキャラクター、世界観等の原著作権は、すべて各原著作者様・企業様に帰属します。
+  </p>
+
+  <table class="terms-table">
+    <tbody>
+      <!-- <tr>
+        <th>個人の端末内での保存・鑑賞（私的使用）</th>
+        <td class="status-ok">〇</td>
+      </tr> -->
+      <tr>
+        <th>WebサイトやSNSへの無断転載・アップロード<br><span style="font-size:0.85em; color:#666;">（アイコン・ヘッダー等への使用を含む）</span></th>
+        <td class="status-ng">✖</td>
+      </tr>
+      <tr>
+        <th>イラストのいかなる利用<br><span style="font-size:0.85em; color:#666;">（配布等 / 営利・非営利問わず）</span></th>
+        <td class="status-ng">✖</td>
+      </tr>
+      <tr>
+        <th>AIの学習データとしての利用</th>
+        <td class="status-ng">✖</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="terms-note">
+    ※万が一、無断使用によって原著作者様との間にトラブルが発生した場合、当方は一切の責任を負いません。
+  </p>
+</div>
+
+                </div>
+            </div>
+
+            <div class="image-gallery">
+                <!-- 二次創作の画像アイテムをここに配置 -->
+
+                <!-- 画像アイテム (横4列) -->
+                <div class="gallery-item"><img src="/imarge/irast/sipisuteka.jpg" alt="Image 5"></div>
+                <div class="gallery-item"><img src="/imarge/irast/IMG_2954.PNG" alt="Image 6"></div>
+                <div class="gallery-item"><img src="/imarge/irast/IMG_2949.PNG" alt="Image 7"></div>
+                <div class="gallery-item"><img src="/imarge/irast/IMG_2946.PNG" alt="Image 8"></div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ポップアップ用モーダル -->
+    <div id="imageModal" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <!-- <button class="close-btn" onclick="closeModal()">×</button> -->
+            <img id="modalImage" src="" alt="Popup Image" onclick="toggleZoom()">
+        </div>
+    </div>
+
+    <script>
+        // タブ切り替え機能
+        function switchTab(tabId, btnElement) {
+            // すべてのセクションを非表示にする
+            document.querySelectorAll('.gallery-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // すべてのボタンの選択状態を解除する
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // 指定されたセクションを表示し、ボタンを選択状態にする
+            document.getElementById(tabId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+
+        // 利用規約の表示切り替え機能
+        function toggleTerms(termsId) {
+            const content = document.getElementById(termsId);
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+            } else {
+                content.style.display = 'block';
+            }
+        }
+
+        // 画像ポップアップ機能
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+
+        // ギャラリー内の画像にクリックイベントを追加
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src; // クリックされた画像のソースを設定
+            });
+        });
+
+        // マウス移動時の処理（拡大時のみ表示領域を移動）
+        const modalContent = document.querySelector('.modal-content');
+        modalContent.addEventListener('mousemove', function(e) {
+            if (!modalImg.classList.contains('enlarged')) return;
+
+            // コンテンツ領域内でのマウス位置を取得
+            const rect = modalContent.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // 位置をパーセンテージに変換してtransform-originに適用
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+
+            modalImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+        });
+
+        // 画像の拡大縮小を切り替える関数
+        function toggleZoom() {
+            modalImg.classList.toggle('enlarged');
+
+            // 拡大解除時に位置を中央にリセット
+            if (!modalImg.classList.contains('enlarged')) {
+                modalImg.style.transformOrigin = 'center center';
+            }
+        }
+
+        // モーダルを閉じる関数
+        function closeModal() {
+            modal.classList.remove('active');
+            // 閉じる時に拡大状態をリセットする
+            modalImg.classList.remove('enlarged');
+            modalImg.style.transformOrigin = 'center center';
+        }
+    </script>
+</body>
+</html>

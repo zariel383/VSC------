@@ -1,0 +1,154 @@
+/* --- 全体の基本設定（リセットとベース） --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9; /* 背景をわずかにグレーにしてカードを際立たせる */
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- ヘッダー --- */
+.site-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.global-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+/* --- メインコンテンツ（ブログ一覧） --- */
+.blog-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  min-height: 60vh;
+}
+
+.page-title {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.blog-list {
+  display: grid;
+  gap: 24px; /* カード間の余白 */
+}
+
+/* --- 記事カード（単体） --- */
+.blog-card {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 軽い影で浮き上がらせる */
+  transition: box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.post-date {
+  display: block;
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.post-excerpt {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.read-more {
+  display: inline-block;
+  font-weight: bold;
+}
+
+/* --- フッター --- */
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+/* --- 記事詳細ページ (article.html) 用のスタイル --- */
+.single-article {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.article-title {
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.article-date {
+  display: block;
+  color: #666;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+/* microCMSのリッチエディタから出力される要素のスタイル */
+.article-body h2 {
+  font-size: 1.5rem;
+  margin: 40px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #333;
+}
+
+.article-body p {
+  margin-bottom: 1.8em;
+  line-height: 1.8;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.back-link {
+  margin-top: 30px;
+  text-align: center;
+}

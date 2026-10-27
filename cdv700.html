@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datasheet: CDV-700</title>
+    <link rel="stylesheet" href="/css/cdv700.css">
+</head>
+<body class="font-serif">
+
+    <!-- PDFビューア風のUIコンテナ -->
+    <div class="pdf-viewer">
+        <div class="pdf-toolbar">
+            <span class="document-title">ガイガーカウンタCDV-700のギャラリーと音声ASMR</span>
+            <div class="page-indicator">
+                Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+            </div>
+        </div>
+        
+        <!-- メインコンテナ（サイドバーとページ領域を横並び） -->
+        <div class="pdf-main-container">
+            
+            <!-- サイドバー（プレビュー領域） -->
+            <div class="pdf-sidebar" id="pdf-sidebar">
+                <!-- JavaScriptでここにサムネイルが生成されます -->
+            </div>
+            
+            <!-- スクロール領域 -->
+            <div class="pdf-scroll-area" id="pdf-scroll-area">
+                
+            <!-- コンテンツ記述エリア（JavaScriptが自動で分割します） -->
+            <div class="datasheet page" id="source-page">
+                
+                <!-- ヘッダー -->
+                <header class="ds-header">
+                    <div class="ds-logo">Lionel,Anton Electronic</div>
+                    <div class="ds-doc-info">
+                        Document No. TUNO-1620<br>
+                        Date: 2026-04-01
+                    </div>
+                </header>
+
+        <!-- 部品名・概要・外観図 -->
+        <div class="ds-main-header">
+            <section class="ds-title-section">
+                <h1 class="ds-part-number">CDV-700</h1>
+                <p class="ds-description">高感度 携帯型ガイガー・ミュラー（GM）放射線測定器 (Model 6 & 6B)</p>
+                <p>CD V-700 Model 6シリーズは、低レベル放射線の検出や汚染モニタリングに使用された、市民防衛用ガイガー・ミュラー（GM）サーベイメーターの代表格です。1960年代に導入された本シリーズは、それ以前のモデルで採用されていた真空管に代わりトランジスタを採用することで、大幅な小型化・軽量化と信頼性向上を実現しました。</p>
+            </section>
+            <section class="ds-appearance-section">
+                <img src="/imarge/cdv700/IMG_20260329_151332.jpg" alt="CDV-700 外観図" class="ds-appearance-image">
+            </section>
+        </div>
+
+        <!-- 1. 主な特徴 -->
+        <section>
+            <h2 class="ds-section-title">1. Features (主な特徴)</h2>
+            <ul class="ds-features-list">
+                <li>高耐久・防水構造: 過酷な環境下（野外での非常事態）での使用を想定した金属製ダイキャスト・ハウジング。</li>
+                <li>ベータ/ガンマ識別プローブ: 回転式シールド（ベータ・ウィンドウ）を備えた外部接続式プローブ。シールド開閉によりγ線のみ、またはβ/γ線混在の測定を切り替え可能。</li>
+                <li><b>電源の効率化 (Model 6B):</b> Lionel Model 6Bは単一電池わずか2本（3.0V）での動作を実現。これは当時の大きな技術的成果であり、5本（7.5V）を要したAnton Model 6からの大きな進歩点です。</li>
+                <li><b>回路設計のトレードオフ:</b> Anton製は堅牢な構造を持つ一方、高電圧レギュレーション回路の脆弱性が指摘されました。対照的に、Lionel製は低電圧で動作させるための高ゲイン回路が、経年による部品の変動に敏感であるという課題を抱えています。</li>
+                <li>3段階のレンジ切り替え: レンジセレクタにより、最大50 mR/hrまでの広範囲な線量率に対応。</li>
+                <li>聴覚フィードバック: 周辺機器のスピーカを使用することにより、放射線検出時に「ガリガリ」と音を立てて、直感的なモニタリングが可能。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="ds-section-title">2. Model Comparison (モデル比較仕様)</h2>
+            <table class="ds-table">
+                <thead>
+                    <tr>
+                        <th>項目</th>
+                        <th>Anton Model 6</th>
+                        <th>Lionel Model 6B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>製造年</td>
+                        <td class="ds-table-center">1960年</td>
+                        <td class="ds-table-center">1962年</td>
+                    </tr>
+                    <tr>
+                        <td>電源（バッテリー）</td>
+                        <td class="ds-table-center">単一電池 5本 (7.5V)</td>
+                        <td class="ds-table-center">単一電池 2本 (3.0V)</td>
+                    </tr>
+                    <tr>
+                        <td>採用GM管</td>
+                        <td class="ds-table-center">Anton 114/6993</td>
+                        <td class="ds-table-center">Lionel 6993</td>
+                    </tr>
+                    <tr>
+                        <td>回路の特性</td>
+                        <td>堅牢だが高電圧レギュレーションが比較的弱い。2トランジスタのモノステーブル・マルチバイブレータ回路。</td>
+                        <td>高効率な2バッテリー設計。低電圧駆動のため高ゲインのオシレーター回路を持ち、経年変化にやや敏感。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2 class="ds-section-title">3. General Specifications (一般仕様)</h2>
+            <table class="ds-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Parameter (項目)</th>
+                        <th rowspan="2">Test Conditions (条件)</th>
+                        <th colspan="3" class="ds-table-center">Value (値)</th>
+                        <th rowspan="2">Unit (単位)</th>
+                    </tr>
+                    <tr>
+                        <th class="ds-table-center">Min</th>
+                        <th class="ds-table-center">Typ.</th>
+                        <th class="ds-table-center">Max</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Detector (検出器)</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center" colspan="3">Halogen-quenched, uncompensated G-M tube</td>
+                        <td class="ds-table-center">-</td>
+                    </tr>
+                    <tr>
+                        <td>Sensitivity (感度)</td>
+                        <td>Gamma (Cs-137)</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center">~1500</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center">cpm/mR/hr</td>
+                    </tr>
+                    <tr>
+                        <td>Accuracy (精度)</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center" colspan="3">±15% of full scale (at time of manufacture)</td>
+                        <td class="ds-table-center">-</td>
+                    </tr>
+                    <tr>
+                        <td>Battery Life (電池寿命)</td>
+                        <td>Alkaline "D" cells (Model 6B)</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center">200</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center">hours</td>
+                    </tr>
+                    <tr>
+                        <td>Dimensions (寸法)</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center" colspan="3">11.4 x 22.9 x 16.5</td>
+                        <td class="ds-table-center">cm</td>
+                    </tr>
+                    <tr>
+                        <td>Weight (重量)</td>
+                        <td>with batteries</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center">1.8</td>
+                        <td class="ds-table-center">-</td>
+                        <td class="ds-table-center">kg</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section>
+            <h2 class="ds-section-title">4. Various Perspective Gallery (様々な角度からの写真)</h2>
+            <p class="ds-note">* 所有しているAnton製 Model 6 & Lionel製 Model 6B</p>
+            <div class="ds-gallery">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213259.jpg" alt="CDV-700 プローブと本体">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213303.jpg" alt="CDV-700 プローブと本体">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213331.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213323.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213313.jpg" alt="CDV-700 全体像">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213339.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213355.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_213416.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214209.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214218.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214226.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214237.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214246.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214324.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214330.jpg" alt="">
+                <img src="/imarge/cdv700/imarge-gallery/P_20201020_214416.jpg" alt="">
+
+
+            </div>
+            <p class="ds-note">* If you find any omissions or errors in the text, or if you have requests for additional audio or pages, please feel free to send a direct message to the author’s X account.</p>
+        </section>
+
+
+        <section>
+            <h2 class="ds-section-title">5. Voice Information (音声情報)</h2>
+            
+            <p>CDV-700の実際の動作音を録音した音声ファイルです。ご自由に試聴・ダウンロード・編集してください。</p>
+            
+            <p>測定および録音条件</p>
+            <ul class="ds-features-list">
+                <p>測定条件</p>
+                <li>対象物から30cm離れた位置からミュラー管を1cm/sの速度で接近、最終的に0.5～10mmの距離で位置を維持して約30秒間測定。</li>
+                <br>
+                <p>録音条件</p>
+                <li>3重に重ねた段ボールの箱の内部に「CDV-700」「出力デバイス」「指向性マイク」「記憶装置(スマートフォン)」を所定の位置に設置。</li>
+                <li>出力デバイスからマイクまで約3㎝の間を開けた状態で録音。</li>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </ul>
+
+            <table class="ds-table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">出力デバイス</th>
+                        <th style="width: 15%;">放射線源</th>
+                        <th style="width: 20%;">概要</th>
+                        <th style="width: 13%;">再生プレビュー</th>
+                        <th style="width: 3%;">ダウンロード</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000305.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <p>none</p>
+                        </th>
+                        <td>近傍における放射性線源の不在が確認された定常状態</td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/hp-defarte.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/hp-defarte.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000305.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-housyaseibusitu/rinkaiuran.jpg" class="ds-table-imarge">
+                        </th>
+                        <td>燐灰ウラン鉱</td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/hp-rinkaiuran.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/hp-rinkaiuran.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000305.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-housyaseibusitu/houtoriumisi.jpg" class="ds-table-imarge">
+                        </th>
+                        <td>方トリウム石</td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/hp-toriumu-stone.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/hp-toriumu-stone.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000305.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-housyaseibusitu/rinkaiurankesyou.jpg" class="ds-table-imarge">
+                        </th>
+                        <td>燐灰ウラン鉱(結晶)<br></td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/hp-rinkaiuran-crystal.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/hp-rinkaiuran-crystal.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- 出力デバイス「自作？」 -->
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000157.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <p>none</p>
+                        </th>
+                        <td>近傍における放射性線源の不在が確認された定常状態<br></td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/zisak-defarte.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/zisak-defarte.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000157.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-housyaseibusitu/rinkaiuran.jpg" class="ds-table-imarge">
+                        </th>
+                        <td>燐灰ウラン鉱<br></td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/zisak-rinkaiuran.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/zisak-rinkaiuran.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000157.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-housyaseibusitu/houtoriumisi.jpg" class="ds-table-imarge">
+                        </th>
+                        <td>方トリウム石<br></td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/zisak-houtoriumu-stone.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/zisak-houtoriumu-stone.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-boise/IMG_20260330_000157.jpg" class="ds-table-imarge">
+                        </th>
+                        <th style="width: 10%;">
+                            <img src="/imarge/cdv700/imarge-housyaseibusitu/rinkaiurankesyou.jpg" class="ds-table-imarge">
+                        </th>
+                        <td>燐灰ウラン鉱(結晶)<br></td>
+                        <td class="ds-table-center">
+                            <audio controls src="/voise/cdv700/zisak-rinkaiuran-crystar.m4a" style="height: 32px; width: 100%; max-width: 200px;">
+                                ※お使いのブラウザは音声再生に対応していません。
+                            </audio>
+                        </td>
+                        <td class="ds-table-center">
+                            <a href="/voise/cdv700/zisak-rinkaiuran-crystar.m4a" download style="font-weight: bold; text-decoration: none; color: inherit; font-size: 12pt;">
+                                DL
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </section>
+
+        <p class="ds-note">* If you find any omissions or errors in the text, or if you have requests for additional audio or pages, please feel free to send a direct message to the author’s X account.</p>
+        <p class="ds-note">* 放射性鉱物の保管方法は、所有者が正しく厚手の木箱と鉛金属により安全に遮蔽保管しています。</p>
+        <p class="ds-note">* このページは公的な文章ではありません。ジョークページです。</p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 自動ページネーションおよびページ番号監視スクリプト
+        window.addEventListener('load', () => { // 画像の読み込み完了後に処理を開始
+            const scrollArea = document.getElementById('pdf-scroll-area');
+            const sourcePage = document.getElementById('source-page');
+            
+            if (!sourcePage) return;
+
+            // ヘッダー要素を取得（各ページに複製して配置するため）
+            const headerEl = sourcePage.querySelector('.ds-header');
+            
+            // ヘッダー以外の全コンテンツ要素（セクション等）を取得
+            const elementsToPaginate = Array.from(sourcePage.children).filter(el => el !== headerEl);
+            
+            // 元のコンテナの中身を空にする
+            scrollArea.innerHTML = '';
+
+            // 新しいA4ページを生成する関数
+            function createNewPage() {
+                const page = document.createElement('div');
+                page.className = 'datasheet page';
+                if (headerEl) {
+                    page.appendChild(headerEl.cloneNode(true)); // ヘッダーを各ページに複製
+                }
+                scrollArea.appendChild(page);
+                return page;
+            }
+
+            let currentPage = createNewPage();
+
+            // 要素を順番に追加し、あふれたら次のページへ移動（ギャラリーは内部で分割）
+            elementsToPaginate.forEach(el => {
+                const gallery = el.querySelector('.ds-gallery');
+                const table = el.querySelector('.ds-table');
+
+                // Special handling for sections containing a gallery
+                if (gallery && el.tagName === 'SECTION') {
+                    
+                    // Part 1: Handle content before the gallery (e.g., the title)
+                    let currentSection = el.cloneNode(false); // Create an empty <section> clone
+                    let nodeBeforeGallery = el.firstChild;
+                    while(nodeBeforeGallery && nodeBeforeGallery !== gallery) {
+                        currentSection.appendChild(nodeBeforeGallery.cloneNode(true));
+                        nodeBeforeGallery = nodeBeforeGallery.nextSibling;
+                    }
+                    
+                    currentPage.appendChild(currentSection);
+                    if (currentPage.scrollHeight > currentPage.clientHeight) {
+                        currentPage.removeChild(currentSection);
+                        currentPage = createNewPage();
+                        currentPage.appendChild(currentSection); // Re-add the same cloned section
+                    }
+
+                    // Part 2: Handle the gallery itself, splitting images
+                    let targetGallery = gallery.cloneNode(false); // Create empty <div class="ds-gallery">
+                    currentSection.appendChild(targetGallery);
+                    const images = Array.from(gallery.querySelectorAll('img'));
+
+                    images.forEach(img => {
+                        targetGallery.appendChild(img.cloneNode(true));
+                        if (currentPage.scrollHeight > currentPage.clientHeight) {
+                            targetGallery.removeChild(targetGallery.lastChild); // Remove the image that caused overflow
+
+                            // Create a new page and a new section for the rest of the content
+                            currentPage = createNewPage();
+                            currentSection = el.cloneNode(false); // New empty section
+                            const title = el.querySelector('.ds-section-title');
+                            if (title) {
+                                const newTitle = title.cloneNode(true);
+                                newTitle.textContent += " (continued)";
+                                currentSection.appendChild(newTitle);
+                            }
+                            currentPage.appendChild(currentSection);
+
+                            // Create a new gallery container and add the image to it
+                            targetGallery = gallery.cloneNode(false);
+                            currentSection.appendChild(targetGallery);
+                            targetGallery.appendChild(img.cloneNode(true));
+                        }
+                    });
+
+                    // Part 3: Handle content after the gallery (e.g., the note)
+                    let nodeAfterGallery = gallery.nextSibling;
+                    while(nodeAfterGallery) {
+                        const clonedNode = nodeAfterGallery.cloneNode(true);
+                        currentSection.appendChild(clonedNode);
+                        if (currentPage.scrollHeight > currentPage.clientHeight) {
+                            currentSection.removeChild(clonedNode);
+                            currentPage = createNewPage();
+                            const newSectionForRest = el.cloneNode(false);
+                            newSectionForRest.appendChild(clonedNode);
+                            currentPage.appendChild(newSectionForRest);
+                            currentSection = newSectionForRest;
+                        }
+                        nodeAfterGallery = nodeAfterGallery.nextSibling;
+                    }
+
+                } else if (table && el.tagName === 'SECTION') {
+                    
+                    // Part 1: テーブルの前のコンテンツ（タイトル等）を処理
+                    let currentSection = el.cloneNode(false);
+                    let nodeBeforeTable = el.firstChild;
+                    while(nodeBeforeTable && nodeBeforeTable !== table) {
+                        currentSection.appendChild(nodeBeforeTable.cloneNode(true));
+                        nodeBeforeTable = nodeBeforeTable.nextSibling;
+                    }
+                    
+                    currentPage.appendChild(currentSection);
+                    if (currentPage.scrollHeight > currentPage.clientHeight) {
+                        currentPage.removeChild(currentSection);
+                        currentPage = createNewPage();
+                        currentPage.appendChild(currentSection);
+                    }
+
+                    // Part 2: テーブル本体の処理（行ごとに分割）
+                    let targetTable = table.cloneNode(false);
+                    let thead = table.querySelector('thead');
+                    let tbody = table.querySelector('tbody');
+                    
+                    if (thead) targetTable.appendChild(thead.cloneNode(true));
+                    
+                    let targetTbody = document.createElement('tbody');
+                    if (tbody) targetTable.appendChild(targetTbody);
+                    else targetTbody = targetTable;
+                    
+                    currentSection.appendChild(targetTable);
+
+                    let rows = tbody ? Array.from(tbody.querySelectorAll('tr')) : Array.from(table.querySelectorAll('tr')).filter(tr => !thead || !thead.contains(tr));
+
+                    rows.forEach(row => {
+                        targetTbody.appendChild(row.cloneNode(true));
+                        if (currentPage.scrollHeight > currentPage.clientHeight) {
+                            targetTbody.removeChild(targetTbody.lastChild); // はみ出した行を一旦削除
+
+                            // 新しいページとセクションを作成
+                            currentPage = createNewPage();
+                            currentSection = el.cloneNode(false);
+                            const title = el.querySelector('.ds-section-title');
+                            if (title) {
+                                const newTitle = title.cloneNode(true);
+                                newTitle.textContent += " (continued)";
+                                currentSection.appendChild(newTitle);
+                            }
+                            currentPage.appendChild(currentSection);
+
+                            // 新しいページにテーブルの枠とヘッダーを作成し、はみ出た行を追加
+                            targetTable = table.cloneNode(false);
+                            if (thead) targetTable.appendChild(thead.cloneNode(true));
+                            targetTbody = document.createElement('tbody');
+                            if (tbody) targetTable.appendChild(targetTbody);
+                            else targetTbody = targetTable;
+                            currentSection.appendChild(targetTable);
+                            
+                            targetTbody.appendChild(row.cloneNode(true));
+                        }
+                    });
+
+                    // Part 3: テーブルの後のコンテンツを処理
+                    let nodeAfterTable = table.nextSibling;
+                    while(nodeAfterTable) {
+                        const clonedNode = nodeAfterTable.cloneNode(true);
+                        currentSection.appendChild(clonedNode);
+                        if (currentPage.scrollHeight > currentPage.clientHeight) {
+                            currentSection.removeChild(clonedNode);
+                            currentPage = createNewPage();
+                            const newSectionForRest = el.cloneNode(false);
+                            newSectionForRest.appendChild(clonedNode);
+                            currentPage.appendChild(newSectionForRest);
+                            currentSection = newSectionForRest;
+                        }
+                        nodeAfterTable = nodeAfterTable.nextSibling;
+                    }
+                } else {
+                    // Default behavior for non-gallery sections
+                    const elementClone = el.cloneNode(true);
+                    currentPage.appendChild(elementClone);
+                    if (currentPage.scrollHeight > currentPage.clientHeight) {
+                        currentPage.removeChild(elementClone);
+                        currentPage = createNewPage();
+                        currentPage.appendChild(el.cloneNode(true));
+                    }
+                }
+            });
+
+            // --- ページフッターの追加とページ番号の監視 ---
+            const pages = document.querySelectorAll('.datasheet.page');
+            const totalPages = pages.length;
+            const totalPagesEl = document.getElementById('total-pages');
+            const currentPageEl = document.getElementById('current-page');
+
+            // 各ページにフッターを追加
+            pages.forEach((page, index) => {
+                const pageNum = index + 1;
+                const footer = document.createElement('footer');
+                footer.className = 'ds-footer';
+                footer.innerHTML = `<span>- ${pageNum} -</span>`;
+                page.appendChild(footer);
+            });
+
+            // 総ページ数を自動的に設定
+            totalPagesEl.textContent = totalPages;
+
+            // --- プレビュー（サイドバー）の生成 ---
+            const sidebar = document.getElementById('pdf-sidebar');
+            const thumbnails = [];
+            
+            pages.forEach((page, index) => {
+                const pageNum = index + 1;
+                
+                const thumbContainer = document.createElement('div');
+                thumbContainer.className = 'pdf-thumbnail-container';
+                
+                const thumb = document.createElement('div');
+                thumb.className = 'pdf-thumbnail';
+                if (pageNum === 1) thumb.classList.add('active'); // 初期状態は1ページ目を選択
+                
+                // ページ全体を複製して縮小表示用のラッパーに入れる
+                const contentClone = page.cloneNode(true);
+                const wrap = document.createElement('div');
+                wrap.className = 'pdf-thumbnail-content';
+                wrap.appendChild(contentClone);
+                thumb.appendChild(wrap);
+                
+                const label = document.createElement('div');
+                label.className = 'pdf-thumbnail-label';
+                label.textContent = pageNum;
+                
+                thumbContainer.appendChild(thumb);
+                thumbContainer.appendChild(label);
+                sidebar.appendChild(thumbContainer);
+                
+                thumbnails.push(thumb);
+                
+                // サムネイルクリックで該当ページへスクロール
+                thumbContainer.addEventListener('click', () => {
+                    page.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Intersection Observerの設定
+            const observerOptions = {
+                root: scrollArea,
+                rootMargin: '0px',
+                threshold: 0.3 // ページが30%以上画面に入ったらアクティブと判定
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // 見えているページのインデックスを取得して表示を更新
+                        const pageIndex = Array.from(pages).indexOf(entry.target) + 1;
+                        currentPageEl.textContent = pageIndex;
+                        
+                        // サムネイルのハイライトを更新し、見えない位置ならサイドバーをスクロール
+                        thumbnails.forEach((t, i) => {
+                            if (i === pageIndex - 1) {
+                                t.classList.add('active');
+                                t.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            } else {
+                                t.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // 各ページを監視対象に追加
+            pages.forEach(page => observer.observe(page));
+        });
+    </script>
+
+</body>
+</html>

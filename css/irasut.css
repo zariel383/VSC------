@@ -1,0 +1,260 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* ヘッダーエリア */
+.top-header {
+    width: 100%;
+    text-align: center; /* 画像を中央揃え */
+    padding: 20px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* メインエリア（画像一覧） */
+.image-gallery {
+    display: flex; /* Flexboxを使用 */
+    flex-wrap: wrap; /* 折り返しを有効にする */
+    justify-content: center; /* 全体を中央揃え */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    /* 横4列にするため幅を25%に設定 */
+    width: 25%;
+    box-sizing: border-box; /* paddingを含めて幅を計算 */
+    padding: 10px; /* 画像間の余白 */
+    display: flex;
+    justify-content: center; /* アイテム内での中央揃え */
+    align-items: center;
+}
+
+.gallery-item img {
+    width: 100%; /* 親要素に合わせてリサイズ */
+    height: auto; /* アスペクト比を保持 */
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* アニメーション設定 */
+    cursor: pointer; /* クリックできることを示すカーソル */
+}
+
+/* 画像ホバー時のアニメーション */
+.gallery-item img:hover {
+    transform: scale(1.05); /* 少し拡大 */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* 影を強調して浮き上がらせる */
+}
+
+/* --- 以下追加スタイル --- */
+
+/* タブ切り替えボタンエリア */
+.tab-buttons {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.tab-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.tab-btn.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* コンテンツ表示切り替え */
+.gallery-section {
+    display: none; /* デフォルトは非表示 */
+    animation: fadeIn 0.5s ease;
+}
+
+.gallery-section.active {
+    display: block; /* activeクラスがつくと表示 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 利用規約エリア */
+.terms-container {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.terms-link {
+    display: inline-block;
+    color: #666;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.terms-link:hover {
+    color: #333;
+}
+
+.terms-text {
+    display: none; /* デフォルトは非表示 */
+    text-align: left;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    line-height: 1.6;
+}
+
+
+
+/* 利用規約用のCSS */
+  .terms-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  .terms-title {
+    font-size: 1.5em;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  .terms-desc {
+    margin-bottom: 20px;
+    font-size: 0.95em;
+  }
+  .terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  .terms-table th, .terms-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.95em;
+  }
+  .terms-table th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+  }
+  .terms-table .status {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    white-space: nowrap;
+  }
+  .status-ok { color: #000000; } /* 〇の色（青） */
+  .status-ng { color: #000000; } /* ✖の色（赤） */
+  .status-opt { color: #000000; font-size: 1em; } /* 任意の色（緑） */
+  .terms-notes {
+    font-size: 0.9em;
+    color: #555;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  .terms-notes p {
+    margin: 0 0 10px 0;
+  }
+  .terms-notes p:last-child {
+    margin: 0;
+  }
+
+/* --- ポップアップ（モーダル）用スタイル --- */
+.modal-overlay {
+    display: none; /* デフォルトは非表示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* 背景を暗くする */
+    z-index: 2000; /* 最前面に表示 */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    /*overflow: hidden;  拡大時に枠外にはみ出さないようにする */
+    border-radius: 4px;
+}
+
+.modal-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    cursor: zoom-in; /* 拡大できることを示すカーソル */
+    transition: transform 0.3s ease; /* 拡大縮小のアニメーション */
+}
+
+/* 拡大時のスタイル */
+.modal-content img.enlarged {
+    transform: scale(3); /* 1.5倍に拡大 */
+    cursor: none; /* 拡大中はカーソルを非表示にする */
+    z-index: 100; /* 他の要素より手前に表示 */
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;   /* 画像の内側に配置 */
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5); /* 背景を半透明の黒に */
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* 丸いボタンにする */
+    z-index: 1001; /* 画像より手前に表示 */
+    transition: background 0.3s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 50, 50, 0.8);
+}

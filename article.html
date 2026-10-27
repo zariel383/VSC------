@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Blog</title>
+    <!-- Tailwind CSS & Typography Plugin -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <!-- Google Fonts (Noto Sans JP) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            /* 背景はごく薄いグレーでメインコンテンツを際立たせる */
+            background-color: #afb0b1;
+        }
+
+        /* プレミアムな質感のパネル */
+        .glass-panel {
+            background-color: #ffffff;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05), 0 0 2px rgba(0,0,0,0.05);
+        }
+
+        /* カスタムスクロールバー（モダンで丸みのあるデザイン） */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e2e8f0;
+            border-radius: 20px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #cbd5e1;
+        }
+
+        /* ブログ本文内の要素のスタイリング（エッジを丸く） */
+        .prose img {
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px -8px rgba(0,0,0,0.1);
+            margin: 2rem auto;
+        }
+        .prose blockquote {
+            border-left: none;
+            background-color: #f1f5f9;
+            padding: 1.5rem 2rem;
+            border-radius: 1.5rem;
+            font-style: normal;
+            color: #475569;
+        }
+        .prose blockquote p:first-of-type::before { content: none; }
+        .prose blockquote p:last-of-type::after { content: none; }
+    </style>
+</head>
+<body class="text-slate-800 h-screen overflow-hidden flex items-center justify-center font-sans antialiased selection:bg-slate-200 selection:text-slate-900">
+
+    <!-- 全体のレイアウトコンテナ -->
+    <div class="w-full h-full max-w-[1400px] mx-auto flex flex-col md:flex-row p-4 md:p-6 lg:p-8 gap-4 md:gap-8">
+        
+        <!-- 左段：ブログ一覧 (スマホ時は上部に横スクロールで配置) -->
+        <aside class="glass-panel rounded-[2rem] w-full md:w-80 lg:w-96 flex flex-col shrink-0 overflow-hidden h-auto md:h-full">
+            <div class="p-6 md:p-8 pb-4 md:pb-6 border-b border-slate-100 shrink-0">
+                <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900">Journal</h2>
+                <p class="text-sm text-slate-500 mt-2 font-medium">一貫性のないことを書いていく</p>
+            </div>
+            
+            <!-- リストコンテナ -->
+            <div id="post-list" class="flex flex-row md:flex-col p-4 md:p-6 gap-3 md:gap-4 overflow-x-auto md:overflow-y-auto custom-scrollbar h-full items-start md:items-stretch">
+                <!-- JavaScriptでここに記事リストが生成されます -->
+                <p class="text-slate-400 text-sm p-2">Loading...</p>
+            </div>
+        </aside>
+
+        <!-- 真ん中(右段)：コンテンツ本体 -->
+        <main class="glass-panel rounded-[2.5rem] flex-1 flex flex-col overflow-hidden relative shadow-sm border border-white">
+            <!-- 上部のフェードエフェクト -->
+            <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
+            
+            <div class="overflow-y-auto custom-scrollbar h-full p-6 md:p-12 lg:p-20 relative z-0" id="main-scroll-container">
+                <article id="post-content" class="max-w-2xl mx-auto mt-4 md:mt-8 pb-24 transition-all duration-500 transform">
+                    <!-- JavaScriptでここに記事本文が生成されます -->
+                    <p class="text-center text-slate-400 mt-20">記事を読み込んでいます...</p>
+                </article>
+            </div>
+            
+            <!-- 下部のフェードエフェクト -->
+            <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
+        </main>
+        
+    </div>
+
+    <!-- 記事データとロジック -->
+    <script src="/javascript/article.js"></script>
+</body>
+</html>
