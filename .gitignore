@@ -1,0 +1,20 @@
+# OS固有の一時ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ・IDE設定
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ログ・一時ファイル
+*.log
+*.tmp
+*.bak
+*.swp
+
+# 環境変数・機密ファイル（将来的な作成に備えて）
+.env
+.env.*

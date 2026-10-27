@@ -60,52 +60,52 @@
 body {
     margin: 0;
     padding: 0;
-    min-height: 100vh;      /* ビューポートの高さを確保 */
-    display: flex;          /* Flexboxを有効化 */
-    justify-content: center;/* 水平方向の中央揃え */
-    align-items: center;    /* 垂直方向の中央揃え */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 上端から配置しモバイルでの見切れを防止 */
     box-sizing: border-box;
-
+    overflow-x: hidden;      /* 意図しない横スクロールを防止 */
     background-image: url("/imarge/sougennodoubutu.png");
 }
 
   .header {
     background-color: rgb(255, 255, 255);
-    width:1200px;
-    min-width: 100%;
-    /* 最小幅をウィンドウ幅に */
-    max-width: 200%;
-    /* 最大幅をウィンドウ幅の2倍に */
     width: 100%;
     max-width: 1280px;
     text-align: center;
-    /* 文字を中央揃え */
-    align-items: center;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
   }
 
   #contents {
     width: 100%;
     max-width: 1280px;
     display: flex;            /* 子要素を横並びにする */
-    justify-content: center;  /* 中央寄せ（必要に応じて space-between 等に変更） */
+    justify-content: center;  /* 中央寄せ */
     align-items: flex-start;  /* 上端を揃える */
+    box-sizing: border-box;
   }
 
   .header_rogo {
-    display: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .rogogif {
+    max-width: 100%;
     width: 700px;
     height: auto;
   }
 
   .header_text {
-    margin-left: 160px;
+    margin-left: 0;
+    display: flex;
     flex-direction: column;
-    /* 子要素を縦並びにする */
     justify-content: center;
-    /* 子要素を垂直方向中央揃え */
+    align-items: center;
   }
 
   a,
@@ -127,20 +127,20 @@ body {
   }
 
   p {
-    line-height: 1.0;
+    line-height: 1.4;
   }
-
 
   .center-header.center-text {
     text-align: center;
   }
 
   .large-header {
-    font-size: 50px;
+    font-size: clamp(1.6rem, 5vw, 50px);
   }
 
   .large-text {
-    font-size: 50px;
+    font-size: clamp(1.6rem, 5vw, 50px);
+    margin: 10px 0;
   }
 
   /* 左列*/
@@ -149,7 +149,7 @@ body {
     width: 250px;
     background-color: rgba(255, 232, 163, 0.6);
     flex-shrink: 0;
-
+    box-sizing: border-box;
   }
 
   .side_col {
@@ -210,57 +210,55 @@ body {
 
   .middle_col {
     display: flex;
+    flex-direction: column;
     width: 700px;
+    max-width: 100%;
     flex-grow: 1;
     margin-left: 20px;
     margin-right: 20px;
+    box-sizing: border-box;
   }
 
   .main_box {
-    width: 740px;
+    width: 100%;
     background-color: rgba(255, 232, 163, 0.6);
     flex-shrink: 1;
     border-radius: 1.5rem;
     padding: 20px;
+    box-sizing: border-box;
   }
 
   .two-set {
     display: flex;
-    /* フレックスボックスを適用 */
     flex-direction: row;
-    /* 横並びに配置 */
     justify-content: space-around;
-    /* 要素間を均等に配置 */
     align-items: center;
-    /* 垂直方向に中央揃え */
     margin-bottom: 20px;
-    /* アイテム間の余白 */
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .two-set-baner {
-    width: 200px;
-    height: 40px;
-    border: #999999;
-
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .two-set a {
     display: block;
-    /* リンクをブロックレベル要素にする */
     position: relative;
+    max-width: 100%;
   }
 
   .two-set img {
-    /* max-width: 100%; */
-    /* 画像がコンテナからはみ出ないようにする */
+    max-width: 100%;
     height: auto;
-    /* 縦横比を維持 */
-
-
   }
 
   .responsive-image_event {
@@ -451,5 +449,82 @@ body.fly-swatter-active .switch-label * {
 }
 .fly-swatter-popup button:hover {
     background-color: #ff3232;
+}
+
+/* ============================================================
+   レスポンシブ対応メディアクエリ（スマホ・タブレット向け）
+   ============================================================ */
+@media screen and (max-width: 1024px) {
+  body {
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  #summarylayout {
+    padding: 10px 8px 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #contents {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* ユーザー様指定の順序: 中央(メイン) -> 左(メニュー) -> 右(ブログ) */
+  .middle_col {
+    order: 1;
+    width: 100%;
+    max-width: 700px;
+    margin: 0;
+  }
+
+  #leftcol {
+    order: 2;
+    width: 100%;
+    max-width: 700px;
+    margin: 0;
+    border-radius: 1.5rem;
+    padding: 15px;
+  }
+
+  #tightcol {
+    order: 3;
+    width: 100%;
+    max-width: 700px;
+    margin: 0;
+  }
+
+  .side_box {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .responsive-image_event {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 10px 5px;
+    margin-bottom: 15px;
+  }
+
+  .main_box, #leftcol, #tightcol {
+    border-radius: 1rem;
+    padding: 15px 10px;
+  }
+
+  .responsive-image_event {
+    margin: 10px auto;
+  }
+
+  .two-set-baner {
+    justify-content: center;
+  }
 }
 }

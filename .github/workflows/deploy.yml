@@ -1,0 +1,46 @@
+name: Deploy to Sakura Server
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'テスト実行（実際のアップロードを行わずに差分だけ確認する）'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  web-deploy:
+    name: FTPS Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 リポジトリコードの取得
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: 🚀 さくらサーバーへの差分デプロイ
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./
+          server-dir: ./www/
+          dry-run: ${{ inputs.dry_run }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github*
+            **/.github*/**
+            **/.vscode*
+            **/.vscode*/**
+            **/.DS_Store
+            **/Thumbs.db
+            **/*.bak
+            **/*.tmp
+            **/*.swp
+            README.md

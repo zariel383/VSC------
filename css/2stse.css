@@ -1,16 +1,22 @@
 @charset "UTF-8";
 
+/* ボックスサイズの統一 */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #000000;
     color: #ffee00;
     font-family: "MS PGothic", sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 20px 10px;
     /* Flexboxによるレイアウト */
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* リンク色設定 */
@@ -24,20 +30,24 @@ a:active { color: #FF0000; }
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 1200px;
     text-align: center;
 }
 
 /* タイトル */
 .page-title {
-    font-size: 3rem; /* font size="7" 相当 */
+    font-size: clamp(1.4rem, 4.5vw, 2.8rem);
     color: #ffee00;
     font-weight: bold;
     margin: 0;
+    line-height: 1.3;
+    word-break: keep-all;
 }
 
 /* 水平線 */
 .separator {
-    width: 90%;
+    width: 100%;
+    max-width: 1000px;
     border: none;
     border-top: 1px solid #ffee00;
     margin: 20px 0;
@@ -45,11 +55,13 @@ a:active { color: #FF0000; }
 
 /* マーキー（アニメーションで再現） */
 .marquee-box {
-    width: 80%;
+    width: 100%;
+    max-width: 800px;
     background-color: #000033;
     overflow: hidden;
     white-space: nowrap;
-    padding: 5px 0;
+    padding: 6px 0;
+    border: 1px solid #333366;
 }
 
 .marquee-text {
@@ -65,41 +77,100 @@ a:active { color: #FF0000; }
 }
 
 /* テキストサイズ */
-.text-large { font-size: 1.2rem; } /* size="4" 相当 */
-.text-small { font-size: small; }  /* size="2" 相当 */
+.text-large { font-size: 1.2rem; }
+.text-small { font-size: small; }
 .text-red { color: #ffee00; }
 
+/* テーブル横スクロール用ラッパー */
+.table-scroll-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 30px;
+    border: 1px solid #444;
+}
+
+/* スクロールバーのカスタマイズ */
+.table-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+.table-scroll-wrapper::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+.table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #ffee00;
+    border-radius: 4px;
+}
+
+/* モバイル向けスクロール案内ヒント */
+.scroll-hint {
+    display: none;
+    color: #ffee00;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    background-color: rgba(255, 238, 0, 0.15);
+    border: 1px dashed #ffee00;
+    border-radius: 4px;
+}
+
 /* テーブルスタイル */
-.teble-image{
-    max-width: 256px;
-    max-height: 256px;
+.teble-image {
+    max-width: 180px;
+    max-height: 180px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 5px auto 0;
 }
 
 .se-table {
-    width: 1500px;
-    max-width: 95%;
+    width: 100%;
+    min-width: 680px;
     background-color: #333333;
     border: 3px solid #ffee00;
     border-collapse: collapse;
-    margin-bottom: 30px;
 }
 
 .se-table th, .se-table td {
     border: 1px solid #ffee00;
-    padding: 10px;
+    padding: 10px 8px;
     vertical-align: middle;
 }
 
 .se-table th {
-    background-color: #333333;
+    background-color: #222222;
     color: #ffee00;
-    width: auto;
+    white-space: nowrap;
 }
 
 .align-center { text-align: center; }
 .align-left { text-align: left; }
 
 .audio-player {
-    width: 200px;
-    height: 30px;
+    width: 180px;
+    max-width: 100%;
+    height: 32px;
+}
+
+/* モバイル向けメディアクエリ */
+@media (max-width: 768px) {
+    body {
+        padding: 10px 5px;
+    }
+
+    .scroll-hint {
+        display: inline-block;
+    }
+
+    .text-large {
+        font-size: 1rem;
+    }
+
+    .se-table th, .se-table td {
+        padding: 8px 6px;
+        font-size: 0.9rem;
+    }
 }
