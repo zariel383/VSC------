@@ -44,6 +44,8 @@ jobs:
             **/.agent*/**
             GEMINI.md
             AGENTS.md
+            config.php
+            config.example.php
             **/.DS_Store
             **/Thumbs.db
             **/*.bak
