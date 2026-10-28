@@ -28,6 +28,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
+          security: loose
+          timeout: 120000
           local-dir: ./
           server-dir: ./www/
           dry-run: ${{ inputs.dry_run }}
@@ -38,6 +40,10 @@ jobs:
             **/.github*/**
             **/.vscode*
             **/.vscode*/**
+            **/.agent*
+            **/.agent*/**
+            GEMINI.md
+            AGENTS.md
             **/.DS_Store
             **/Thumbs.db
             **/*.bak
