@@ -18,3 +18,5 @@ desktop.ini
 # 環境変数・機密ファイル（将来的な作成に備えて）
 .env
 .env.*
+
+config.php
